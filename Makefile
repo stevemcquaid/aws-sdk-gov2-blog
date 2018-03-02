@@ -10,6 +10,10 @@ push:
 run:
 	@bash -x scripts/run.sh
 
+## Run a shell within the container
+bash:
+	@bash -x scripts/bash.sh
+
 help:
 	@printf "Available targets:\n\n"
 	@awk '/^[a-zA-Z\-\_0-9%:\\]+:/ { \
