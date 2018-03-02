@@ -11,7 +11,7 @@ RUN curl -s https://storage.googleapis.com/golang/go1.9.1.linux-amd64.tar.gz | t
 # ENV GOROOT $HOME/go
 
 # ENV PATH $PATH:$GOROOT/bin:usr/local
-ENV PATH PATH=$PATH:/usr/local/go/bin
+ENV PATH $PATH:/usr/local/go/bin
 
 # ENV PATH /usr/local/go/bin:/go/bin:/usr/local/bin:$PATH
 
