@@ -8,9 +8,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y bash git nano cur
 
 RUN curl -s https://storage.googleapis.com/golang/go1.9.1.linux-amd64.tar.gz | tar -v -C /usr/local -xz
 
-ENV GOROOT $HOME/go
+# ENV GOROOT $HOME/go
 
-ENV PATH $PATH:$GOROOT/bin
+# ENV PATH $PATH:$GOROOT/bin:usr/local
+RUN PATH PATH=$PATH:/usr/local/go/bin
 
 # ENV PATH /usr/local/go/bin:/go/bin:/usr/local/bin:$PATH
 
