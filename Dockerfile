@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Steve McQuaid <steve@stevemcquaid.com>
 
-ENV VERSION=1.0.0
+ENV VERSION=1.0.1
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y bash git nano curl
 
