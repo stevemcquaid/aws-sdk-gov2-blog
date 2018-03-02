@@ -15,3 +15,5 @@
 
 # Config for aws cli
 aws.env
+
+pkg/
