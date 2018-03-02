@@ -4,15 +4,19 @@ MAINTAINER Steve McQuaid <steve@stevemcquaid.com>
 
 ENV VERSION=1.0.0
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y bash git nano curl golang-go
+RUN apt-get update && apt-get upgrade -y && apt-get install -y bash git nano curl
 
-ENV GOPATH /go
+RUN curl -s https://storage.googleapis.com/golang/go1.9.1.linux-amd64.tar.gz | tar -v -C /usr/local -xz
 
-ENV GOROOT /usr/local/go
+ENV GOROOT $HOME/go
 
-ENV PATH /usr/local/go/bin:/go/bin:/usr/local/bin:$PATH
+ENV PATH $PATH:$GOROOT/bin
+
+# ENV PATH /usr/local/go/bin:/go/bin:/usr/local/bin:$PATH
 
 WORKDIR /go
+
+ENV GOPATH /go
 
 # Caching large packages to speed up build
 RUN go get -u golang.org/x/crypto/ssh/terminal 
@@ -24,7 +28,7 @@ RUN go get github.com/go-ini/ini
 RUN go get github.com/jmespath/go-jmespath
 RUN go get github.com/aws/aws-sdk-go-v2
 
-COPY src/ .
+COPY src/ /go/github.com/stevemcquaid/aws-sdk-giv2-blog/src
 
 RUN go get -d -v   # "go get -d -v ./..."
 RUN go install -v    # "go install -v ./..."
